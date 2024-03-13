@@ -1,14 +1,15 @@
 /* SpeedTypingGame.css */
 
 .container {
-  max-width: 100%;
-  margin: 5px;
-  width: 100%;
+  max-width: 80%;
+  margin-inline: auto;
+  width: 80%;
   padding: 30px;
   border-radius: 10px;
   box-sizing: border-box;
   border: 1px solid #ced4da;
-  backdrop-filter: blur(50px);
+  backdrop-filter:  grayscale(100%);
+  
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
@@ -27,8 +28,13 @@ input.input-field {
   border-radius: 5px;
   padding: 20px;
   padding-top: 0;
+  display: flex;
+  flex-direction: column;
+
+ 
 }
 .section1 {
+  padding: 5vh 3%;
   border-bottom: 1px solid #ced4da;
 }
 span {
@@ -52,17 +58,20 @@ span.active {
 
 .section2 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin-top: 5px;
 }
 .section2 ul {
   padding-inline-start: 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 4%;
   align-items: center;
   margin: 0px;
   width: calc(100% - 120px);
+  padding:1rem 0 2rem 0;
 }
 
 .section2 ul li {
@@ -71,12 +80,11 @@ span.active {
 }
 
 .section2 ul li p {
-  margin: 5px;
-  font-size: 12px;
+  font-size: 1.2rem;
 }
 
 .section2 ul li span {
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 button.btn {

@@ -14,7 +14,7 @@ const TypingArea = ({
 }) => {
   return (
     <div className="section" style={{ color: "white" }}>
-      <div className="section1" style={{ padding: "10px 20px" }}>
+      <div className="section1">
         <p id="paragraph">{typingText}</p>
       </div>
       <div className="section2">
