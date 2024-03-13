@@ -19,19 +19,20 @@ function Signup() {
           if (formValues.Password === formValues.ConfirmPassword) {
             let product;
             try {
-              let getp = await fetch("http://localhost:4000/sendformType", {
+              let getp = await fetch("http://localhost:8000/api/createuser", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
-                  //   authorization: token,
                 },
                 body: JSON.stringify({ formValues }),
               });
               getp = await getp.json();
 
-              if (getp) {
+              if (getp === true) {
                 product = getp;
                 setFormValues(null);
+              } else if (getp === 3) {
+                toast.error("Username already exists");
               } else {
                 product = false;
               }
