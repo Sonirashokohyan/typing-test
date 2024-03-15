@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import styles from "../css/Signup.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   let logincheck = async () => {
     if (username && password) {
-      let logincheck = fetch("http://localhost:4000/logincheck", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      if (logincheck) {
-        localStorage.setItem("token", logincheck.token);
-        localStorage.setItem("userId", logincheck.UserId);
+      if (username && password) {
+        let logincheck = await fetch("http://127.0.0.1:8000/api/login/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        });
+        logincheck = await logincheck.json();
+        if (logincheck.token) {
+          localStorage.setItem("token", logincheck.token);
+          navigate("/start");
+        } else {
+          toast.error("Username and Password is incorrect.");
+        }
       } else {
-        toast.error("Username and Password is incorrect.");
+        toast.error("please fill the username and password.");
       }
     } else {
       toast.error("please fill the username and password.");
@@ -57,13 +62,12 @@ function Login() {
                   }}
                 />
 
-                <button class={styles.btn_72} type="submit">
+                <button className={styles.btn_72} type="submit">
                   Login
                 </button>
               </form>
               <div className={`${styles.register_forget} ${styles.opacity}`}>
                 <Link to={"/signup"}> Register</Link>
-                <Link to={"/forgotpassword"}> Forgot Password</Link>
               </div>
             </div>
             <div className={`${styles.circle} ${styles.circle_two}`}></div>

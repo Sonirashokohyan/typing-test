@@ -1,5 +1,6 @@
 // TypingArea.js
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const TypingArea = ({
   typingText,
@@ -12,6 +13,33 @@ const TypingArea = ({
   handleKeyDown,
   resetGame,
 }) => {
+useEffect(()=>{
+
+  if(timeLeft===0){
+   let sendData=async()=>{
+    let token=localStorage.getItem("token")
+    try{ let name=await fetch("http://127.0.0.1:8000/api/records-save/",{
+  method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify({token,WPM})
+})
+name=await name.json();
+if(name){
+toast.success("Data Saved Successfuly.")
+}}catch(error){
+  
+    toast.error("Data Saving failed.")
+  
+  
+    }
+   }
+   sendData()
+   
+   
+  }
+},[timeLeft,WPM])
+
+
   return (
     <div className="section" style={{ color: "white" }}>
       <div className="section1">

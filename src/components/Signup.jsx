@@ -14,26 +14,27 @@ function Signup() {
 
   async function SendForm() {
     if (formValues) {
-      if (formValues.Name) {
-        if (formValues.Password && formValues.ConfirmPassword) {
-          if (formValues.Password === formValues.ConfirmPassword) {
+      if (formValues.name) {
+        if (formValues.password && formValues.ConfirmPassword) {
+          if (formValues.password === formValues.ConfirmPassword) {
             let product;
             try {
-              let getp = await fetch("http://localhost:8000/api/createuser", {
+              let getp = await fetch("http://127.0.0.1:8000/api/register/", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ formValues }),
+                body: JSON.stringify(formValues), // Corrected line
               });
               getp = await getp.json();
+              console.log(getp);
 
-              if (getp === true) {
-                product = getp;
+              if (getp.success) {
+                toast.error(getp.success);
+                product = true;
                 setFormValues(null);
-              } else if (getp === 3) {
-                toast.error("Username already exists");
-              } else {
+              }else {
+                toast.error("Username Already Exists");
                 product = false;
               }
             } catch (error) {
@@ -42,7 +43,7 @@ function Signup() {
             if (product) {
               navigate("/");
             } else {
-              toast.error("Form Submission Failed Please try again.");
+              // toast.error("Form Submission Failed Please try again.");
             }
           } else {
             toast.error("password and confirm not equal.");
@@ -77,7 +78,7 @@ function Signup() {
                 <input
                   type="text"
                   placeholder="Name"
-                  name="Name"
+                  name="name"
                   onChange={(e) => {
                     getForm(e);
                   }}
@@ -85,7 +86,7 @@ function Signup() {
                 <input
                   type="text"
                   placeholder="Username"
-                  name="Username"
+                  name="username"
                   onChange={(e) => {
                     getForm(e);
                   }}
@@ -93,7 +94,7 @@ function Signup() {
                 <input
                   type="password"
                   placeholder="Password"
-                  name="Password"
+                  name="password"
                   onChange={(e) => {
                     getForm(e);
                   }}

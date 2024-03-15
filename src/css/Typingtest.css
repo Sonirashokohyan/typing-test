@@ -8,8 +8,8 @@
   border-radius: 10px;
   box-sizing: border-box;
   border: 1px solid #ced4da;
-  backdrop-filter:  grayscale(100%);
-  
+  backdrop-filter: grayscale(100%);
+
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
@@ -30,8 +30,6 @@ input.input-field {
   padding-top: 0;
   display: flex;
   flex-direction: column;
-
- 
 }
 .section1 {
   padding: 5vh 3%;
@@ -71,7 +69,7 @@ span.active {
   align-items: center;
   margin: 0px;
   width: calc(100% - 120px);
-  padding:1rem 0 2rem 0;
+  padding: 1rem 0 2rem 0;
 }
 
 .section2 ul li {
