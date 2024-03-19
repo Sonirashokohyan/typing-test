@@ -404,3 +404,17 @@
     color: white;
   }
 }
+
+
+
+@media (max-width: 350px) {
+  .startmain_container .startmain_container_start h1 {
+    font-size: 4rem;
+  }
+}
+@media (min-width:351px) and (max-width: 768px) {
+  .startmain_container .startmain_container_start h1 {
+    font-size: 5rem;
+  }
+}
+

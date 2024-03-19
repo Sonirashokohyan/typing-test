@@ -17,6 +17,7 @@ function Login() {
           body: JSON.stringify({ username, password }),
         });
         logincheck = await logincheck.json();
+        console.log(logincheck);
         if (logincheck.token) {
           localStorage.setItem("token", logincheck.token);
           navigate("/start");
@@ -70,7 +71,7 @@ function Login() {
                 <Link to={"/signup"}> Register</Link>
               </div>
             </div>
-            <div className={`${styles.circle} ${styles.circle_two}`}></div>
+            {/* <div className={`${styles.circle} ${styles.circle_two}`}></div> */}
           </div>
           <div className={styles.theme_btn_container}></div>
         </section>

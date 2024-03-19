@@ -119,7 +119,7 @@ function Signup() {
                 <Link to={"/"}> Already have an account</Link>
               </div>
             </div>
-            <div className={`${styles.circle} ${styles.circle_two}`}></div>
+            {/* <div className={`${styles.circle} ${styles.circle_two}`}></div> */}
           </div>
           <div className={styles.theme_btn_container}></div>
         </section>

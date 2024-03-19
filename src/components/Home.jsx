@@ -20,7 +20,6 @@ let logout=await fetch("http://127.0.0.1:8000/api/logout/",{
   body:JSON.stringify({token})
 })
 logout=await logout.json();
-console.log(logout)
 if(logout){
   localStorage.removeItem("token");
   navigate("/")
@@ -41,7 +40,6 @@ body:JSON.stringify({token})
 })
 name=await name.json();
 if(name){
-console.log("recievedWpm",name)
 setRecieveRecords(name)
 }}catch(error){
 

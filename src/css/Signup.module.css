@@ -10,7 +10,7 @@
   align-items: center;
 }
 .loginform {
-  height: 60vh;
+  height: 75vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -262,3 +262,45 @@ h1 {
 .btn_72:active {
   box-shadow: inset 5px 5px 10px #cee3f2, inset -5px -5px 10px lightgray;
 }
+
+
+
+
+@media (max-width:520px){
+
+
+  /* .loginform{
+    height: 90vh;
+    width: 100%;
+  } */
+  .Login_container {
+    height: 100vh;
+    width: 100%;
+  }
+  .loginform {
+    height: 75vh;
+    width: 90%;
+ 
+  }
+
+  .form_container{
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .login_container {
+    position: relative;
+    width: 20rem;
+  }
+
+}
+
+@media (max-width:320px){
+  
+  .login_container form input{
+    margin: 1rem 0;
+  }
+}
+
+
+

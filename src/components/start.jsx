@@ -15,7 +15,6 @@ function Start() {
 })
 name=await name.json();
 if(name){
-  console.log(name)
 localStorage.setItem("name",name)
 navigate("/home");
 
