@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import styles from "../css/Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
+
 function Login() {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   let logincheck = async () => {
     if (username && password) {
       if (username && password) {
+        setLoading(true);
         let logincheck = await fetch("http://127.0.0.1:8000/api/login/", {
           method: "POST",
           headers: {
@@ -17,11 +20,14 @@ function Login() {
           body: JSON.stringify({ username, password }),
         });
         logincheck = await logincheck.json();
-        console.log(logincheck);
+        console.log("logincheck",logincheck);
         if (logincheck.token) {
+          setLoading(false);
           localStorage.setItem("token", logincheck.token);
+          localStorage.setItem("name", logincheck.name);
           navigate("/start");
         } else {
+          setLoading(false);
           toast.error("Username and Password is incorrect.");
         }
       } else {
@@ -64,7 +70,10 @@ function Login() {
                 />
 
                 <button className={styles.btn_72} type="submit">
-                  Login
+                 {
+                  loading ? <span className={styles.loader}></span> :"Login"
+
+                 }
                 </button>
               </form>
               <div className={`${styles.register_forget} ${styles.opacity}`}>

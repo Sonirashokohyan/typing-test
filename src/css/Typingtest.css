@@ -38,7 +38,7 @@ input.input-field {
 span {
   font-size: 20px;
   user-select: none;
-  cursor: tex;
+  cursor:text;
 }
 span.wrong {
   color: darkred;
@@ -60,22 +60,34 @@ span.active {
   justify-content: center;
   align-items: center;
   margin-top: 5px;
+  width: 100%;
 }
-.section2 ul {
+.section2 .resultDetails {
   padding-inline-start: 0px;
   display: flex;
-  justify-content: center;
-  gap: 4%;
   align-items: center;
   margin: 0px;
-  width: calc(100% - 120px);
+  width: 100%;
   padding: 1rem 0 2rem 0;
+  flex-wrap: wrap;
+}
+
+.section2 ul .li_div {
+  /* margin-inline: auto; */
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .section2 ul li {
   list-style-type: none;
-  margin: 0 10px;
+  width: 40%;
 }
+
+
 
 .section2 ul li p {
   font-size: 1.2rem;
@@ -102,7 +114,7 @@ button.btn:hover {
   background-color: #1879ba;
 }
 
-@media screen and (max-width: 550px) {
+@media (max-width: 550px) {
   .section2 {
     flex-direction: column;
   }
@@ -116,4 +128,22 @@ button.btn:hover {
     width: 100%;
     margin-top: 10px;
   }
+
+  .container {
+    max-width: 93%;
+    margin-inline: auto;
+    width: 93%;
+    padding: 10px;
+    border-radius: 10px;
+  }
 }
+
+/* @media screen and (min-width: 550px) and (max-width: 790px){
+  .container {
+    max-width: 90%;
+    margin-inline: 0;
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+} */

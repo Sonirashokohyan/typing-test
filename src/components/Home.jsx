@@ -1,38 +1,27 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import styles from "../css/startHome.module.css";
 import Typingtest from "./Typingtest";
 import { useNavigate } from "react-router-dom";
 import { Toaster,toast } from "sonner";
 function Home() {
-  
+ 
+  const [loading, setLoading] = useState(true);
   const [checkprofile, setCheckProfile] = useState(false);
   const [checkRecords, setCheckRecords] = useState(false);
   const [recieveRecords, setRecieveRecords] = useState("");
-  let navigate=useNavigate()
+
   useEffect(() => {
     checkprofile === false && setCheckRecords(false);
   }, [checkprofile, checkRecords]);
-  let logout=async()=>{
-   let token = localStorage.getItem("token")
-let logout=await fetch("http://127.0.0.1:8000/api/logout/",{
-  method:"POST",
-  headers:{"Content-Type":"application/json"},
-  body:JSON.stringify({token})
-})
-logout=await logout.json();
-if(logout){
-  localStorage.removeItem("token");
-  navigate("/")
+  let navigate=useNavigate()
 
-}else{
-toast.error("logout failed.")
+  let logout=()=>{
+      localStorage.removeItem("token");
+      navigate("/")
 }
-}
-let name=localStorage.getItem("name")
-
 let recieveWPM=async()=>{
-  
   let token=localStorage.getItem("token")
+  if(token){
   try{ let name=await fetch("http://127.0.0.1:8000/api/records/",{
 method:"POST",
 headers:{"Content-Type":"application/json"},
@@ -40,6 +29,8 @@ body:JSON.stringify({token})
 })
 name=await name.json();
 if(name){
+  setLoading(false)
+
 setRecieveRecords(name)
 }}catch(error){
 
@@ -50,16 +41,18 @@ setRecieveRecords(name)
 
 
 }
+}
 
   return (
-    <div className={styles.Home_Main_Container}>
+  <div className={styles.Home_Main_Container}>
     <Toaster richColors position="top-center"/>
-      <div
+      <div className={styles.Home_text}
         style={{
           borderBottom: "1px solid white",
           marginBottom: "3rem",
           display: "flex",
           justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
         <h1
@@ -67,26 +60,17 @@ setRecieveRecords(name)
             setCheckProfile(false);
           }}
         >
-          Check Your WPM Typing Speed Here
+          Check Your Typing Speed
         </h1>
         <div
-          style={{
-            height: "50px",
-            width: "50px",
-            backgroundColor: "lightyellow",
-            position: "relative",
-            borderRadius: "50%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+      
           className={styles.Home_Main_Container_dropdownimg}
           onClick={() => {
             setCheckProfile(!checkprofile);
             recieveWPM()
           }}
         >
-          <h2 style={{ fontSize: "1.9rem" }}>{name[0].toUpperCase()}</h2>
+          <h2 className={styles.profile} style={{ fontSize: "1.9ssrem" }}>{localStorage.getItem("name")[0].toUpperCase()}</h2>
           {checkprofile && (
             <div
               className={styles.container_dropdown_divs}
@@ -138,6 +122,9 @@ setRecieveRecords(name)
                 <h3>Recents</h3>
                 <i className="bx bx-chevron-right" style={{ color: "white" }}></i>
               </div>
+              
+           {loading&& <span className={styles.loader}></span>}
+              
          {
           recieveRecords && recieveRecords.map((item,index)=>{
            return (<div key={index}><h3>

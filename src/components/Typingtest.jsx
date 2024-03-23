@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../css/Typingtest.css";
 import TypingArea from "./TypingArea"; // Import the TypingArea component
 
@@ -23,6 +23,7 @@ const SpeedTypingGame = () => {
 
   const loadParagraph = () => {
     const ranIndex = Math.floor(Math.random() * paragraphs.length);
+    
     const inputField = document.getElementsByClassName("input-field")[0];
     document.addEventListener("keydown", () => inputField.focus());
     const content = Array.from(paragraphs[ranIndex]).map((letter, index) => (

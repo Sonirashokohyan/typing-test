@@ -1,5 +1,5 @@
 // TypingArea.js
-import React, { useEffect, useState } from "react";
+import  { useEffect } from "react";
 import { toast } from "sonner";
 
 const TypingArea = ({
@@ -47,24 +47,26 @@ toast.success("Data Saved Successfuly.")
       </div>
       <div className="section2">
         <ul className="resultDetails">
-          <li className="time">
-            <p>Time Left:</p>
-            <span>
-              <b>{timeLeft}</b>s
-            </span>
-          </li>
-          <li className="mistake">
-            <p>Mistakes:</p>
-            <span>{mistakes}</span>
-          </li>
-          <li className="wpm">
-            <p>WPM:</p>
-            <span>{WPM}</span>
-          </li>
-          <li className="cpm">
-            <p>CPM:</p>
-            <span>{CPM}</span>
-          </li>
+          <div className="li_div">
+            <li className="time">
+              <p>Time Left:</p>
+              <span>
+                <b>{timeLeft}</b>s
+              </span>
+            </li>
+            <li className="mistake">
+              <p>Mistakes:</p>
+              <span>{mistakes}</span>
+            </li>
+            <li className="wpm">
+              <p>WPM:</p>
+              <span>{WPM}</span>
+            </li>
+            <li className="cpm">
+              <p>CPM:</p>
+              <span>{CPM}</span>
+            </li>
+          </div>
         </ul>
         <button onClick={resetGame} className="btn">
           Try Again

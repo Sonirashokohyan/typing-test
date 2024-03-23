@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../css/Signup.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
-
 function Signup() {
+  const [loading, setLoading] = useState(false);
   const [formValues, setFormValues] = useState(null);
 
   let navigate = useNavigate();
@@ -19,6 +19,7 @@ function Signup() {
           if (formValues.password === formValues.ConfirmPassword) {
             let product;
             try {
+              setLoading(true);
               let getp = await fetch("http://127.0.0.1:8000/api/register/", {
                 method: "POST",
                 headers: {
@@ -30,10 +31,12 @@ function Signup() {
               console.log(getp);
 
               if (getp.success) {
+                setLoading(false);
                 toast.error(getp.success);
                 product = true;
                 setFormValues(null);
               }else {
+                setLoading(false)
                 toast.error("Username Already Exists");
                 product = false;
               }
@@ -109,7 +112,10 @@ function Signup() {
                 />
 
                 <button className={styles.btn_72} type="submit">
-                  Submit
+                {
+                  loading ? <span className={styles.loader}></span> :"Register"
+
+                 }
                 </button>
               </form>
               <div
