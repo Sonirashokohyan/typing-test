@@ -22,6 +22,7 @@
     padding-left: 2%;
   }
 }
+
 .startmain_container .startmain_container_start {
   position: relative;
   z-index: 99;
@@ -98,7 +99,7 @@
   }
 }
 
-/* ///////////////////////////////////////////////// */
+/* //////////////// Home page ///////////////////////////////// */
 .Home_Main_Container {
   background: linear-gradient(rgba(14, 14, 14, 0.6), rgba(14, 14, 14, 0.7)),
     url(/background.jpg);
@@ -183,6 +184,8 @@
     color: white;
   }
 }
+
+
 .btn_85,
 .btn_85 *,
 .btn_85 :after,
@@ -363,6 +366,8 @@
     opacity: 1;
   }
 }
+
+
 /* ////////////////////////////////////////// */
 
 .container_dropdown_divs {

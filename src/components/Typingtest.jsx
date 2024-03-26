@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "../css/Typingtest.css";
-import TypingArea from "./TypingArea"; // Import the TypingArea component
+import TypingArea from "./TypingArea"; 
 
 const SpeedTypingGame = () => {
   const paragraphs = [

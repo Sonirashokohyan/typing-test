@@ -20,13 +20,14 @@ function Signup() {
             let product;
             try {
               setLoading(true);
-              let getp = await fetch("http://127.0.0.1:8000/api/register/", {
+              let getp = await fetch("https://sonira.pythonanywhere.com/api/register/", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(formValues), // Corrected line
               });
+
               getp = await getp.json();
               console.log(getp);
 
@@ -43,6 +44,7 @@ function Signup() {
             } catch (error) {
               product = false;
             }
+            
             if (product) {
               navigate("/");
             } else {

@@ -13,34 +13,33 @@ function Home() {
   useEffect(() => {
     checkprofile === false && setCheckRecords(false);
   }, [checkprofile, checkRecords]);
+
   let navigate=useNavigate()
 
   let logout=()=>{
       localStorage.removeItem("token");
       navigate("/")
-}
+  }
+
 let recieveWPM=async()=>{
   let token=localStorage.getItem("token")
   if(token){
-  try{ let name=await fetch("http://127.0.0.1:8000/api/records/",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({token})
-})
-name=await name.json();
-if(name){
-  setLoading(false)
+  try{ 
+    let name=await fetch("https://sonira.pythonanywhere.com/api/records/",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({token})
+      })
+    name=await name.json();
+    if(name){
+    setLoading(false)
 
-setRecieveRecords(name)
-}}catch(error){
+    setRecieveRecords(name)
+  }}catch(error){
 
-  toast.error("Data recieving failed.")
-
-
-  }
-
-
-}
+   toast.error("Data recieving failed.")
+   }
+ }
 }
 
   return (
@@ -62,8 +61,8 @@ setRecieveRecords(name)
         >
           Check Your Typing Speed
         </h1>
+
         <div
-      
           className={styles.Home_Main_Container_dropdownimg}
           onClick={() => {
             setCheckProfile(!checkprofile);
@@ -123,7 +122,7 @@ setRecieveRecords(name)
                 <i className="bx bx-chevron-right" style={{ color: "white" }}></i>
               </div>
               
-           {loading&& <span className={styles.loader}></span>}
+           {loading && <span className={styles.loader}></span>}
               
          {
           recieveRecords && recieveRecords.map((item,index)=>{

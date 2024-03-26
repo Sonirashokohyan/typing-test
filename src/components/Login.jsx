@@ -8,19 +8,22 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  
   let logincheck = async () => {
     if (username && password) {
       if (username && password) {
         setLoading(true);
-        let logincheck = await fetch("http://127.0.0.1:8000/api/login/", {
+        let logincheck = await fetch("https://sonira.pythonanywhere.com/api/login/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, password }),
         });
+
         logincheck = await logincheck.json();
         console.log("logincheck",logincheck);
+        
         if (logincheck.token) {
           setLoading(false);
           localStorage.setItem("token", logincheck.token);
