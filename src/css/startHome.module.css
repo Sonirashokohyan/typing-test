@@ -1,33 +1,40 @@
 .startmain_container {
-  background: url(/background.jpg);
   height: 100vh;
   width: 100%;
-
+background-color: #000;
   background-size: cover;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
   flex-direction: column;
-
-  h2 {
-    font-size: 2rem;
-    padding-bottom: 6vh;
+  position: relative;
+  h2{
     color: white;
-    line-height: 45px;
-    font-family: "Goblin One", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-shadow: 5px 5px 15px black;
-    z-index: 9;
-    padding-left: 2%;
+    /* padding-left: 3%; */
   }
-}
+  video{
+    height: 100vh !important;
+    width: 100%;
+    object-fit: cover;
+  }
 
+}
+.audiobtn{
+  color: rgba(255, 255, 255, 0.481);
+  font-size: 2.5rem;
+  position: absolute;
+ 
+  background-color: transparent;
+  border: none;
+  top: 5vh;
+  right: 5vh;
+  z-index: 99999999;
+  
+  
+  
+}
 .startmain_container .startmain_container_start {
   position: relative;
-  z-index: 99;
-  height: 80vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -42,7 +49,7 @@
   color: lightblue;
   text-shadow: 5px 5px 15px black;
   z-index: 9;
-  padding-left: 2%;
+  /* padding-left: 2%; */
   transition: all 0.2s ease-in-out;
   position: absolute;
   
@@ -52,10 +59,11 @@
   }
 }
 .startmain_container_cover {
-  height: 100vh;
-  width: 100%;
-  backdrop-filter: brightness(40%);
-  position: absolute;
+ position: absolute;
+ bottom: 3vh;
+ left: 3%;
+ width: 50%;
+
 }
 
 .startmain_container .startmain_container_start h1:nth-child(1) {

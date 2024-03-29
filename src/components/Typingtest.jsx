@@ -40,6 +40,7 @@ const SpeedTypingGame = () => {
     setCharIndex(0);
     setMistakes(0);
     setIsTyping(false);
+  
   };
   const handleKeyDown = (event) => {
     const characters = document.querySelectorAll(".char");
@@ -154,7 +155,6 @@ const SpeedTypingGame = () => {
       clearInterval(interval);
     };
   }, [isTyping, timeLeft]);
-
   return (
     <div className="container">
       <input
