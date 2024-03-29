@@ -7,109 +7,104 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Typing Test Online</title>
-    <script>
-     window.addEventListener("DOMContentLoaded",()=>{
-      document.getElementById("loading").style.display="none";
-
-     })
-    </script>
+   
     <style>
-      .container_loader {
-  height: 100vh;
-  width: 100vw;
-  font-family: Helvetica;
-}
+        .container_loader {
+          height: 100vh;
+          width: 100vw;
+          font-family: Helvetica;
+        }
 
-.container_loader .loader {
-  height: 20px;
-  width: 250px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-.container_loader .loader--dot {
-  animation-name: loader;
-  animation-timing-function: ease-in-out;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  height: 20px;
-  width: 20px;
-  border-radius: 100%;
-  background-color: black;
-  position: absolute;
-  border: 2px solid white;
-}
-.container_loader .loader--dot:first-child {
-  background-color: #8cc759;
-  animation-delay: 0.5s;
-}
-.container_loader .loader--dot:nth-child(2) {
-  background-color: #8c6daf;
-  animation-delay: 0.4s;
-}
-.container_loader .loader--dot:nth-child(3) {
-  background-color: #ef5d74;
-  animation-delay: 0.3s;
-}
-.container_loader .loader--dot:nth-child(4) {
-  background-color: #f9a74b;
-  animation-delay: 0.2s;
-}
-.container_loader .loader--dot:nth-child(5) {
-  background-color: #60beeb;
-  animation-delay: 0.1s;
-}
-.container_loader .loader--dot:nth-child(6) {
-  background-color: #fbef5a;
-  animation-delay: 0s;
-}
-.container_loader .loader--text {
-  position: absolute;
-  top: 200%;
-  left: 0;
-  right: 0;
-  width: 4rem;
-  margin: auto;
-}
-.container_loader .loader--text:after {
-  content: "Loading";
-  font-weight: bold;
-  animation-name: loading-text;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-}
+        .container_loader .loader {
+          height: 20px;
+          width: 250px;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+        }
+        .container_loader .loader--dot {
+          animation-name: loader;
+          animation-timing-function: ease-in-out;
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+          height: 20px;
+          width: 20px;
+          border-radius: 100%;
+          background-color: black;
+          position: absolute;
+          border: 2px solid white;
+        }
+        .container_loader .loader--dot:first-child {
+          background-color: #8cc759;
+          animation-delay: 0.5s;
+        }
+        .container_loader .loader--dot:nth-child(2) {
+          background-color: #8c6daf;
+          animation-delay: 0.4s;
+        }
+        .container_loader .loader--dot:nth-child(3) {
+          background-color: #ef5d74;
+          animation-delay: 0.3s;
+        }
+        .container_loader .loader--dot:nth-child(4) {
+          background-color: #f9a74b;
+          animation-delay: 0.2s;
+        }
+        .container_loader .loader--dot:nth-child(5) {
+          background-color: #60beeb;
+          animation-delay: 0.1s;
+        }
+        .container_loader .loader--dot:nth-child(6) {
+          background-color: #fbef5a;
+          animation-delay: 0s;
+        }
+        .container_loader .loader--text {
+          position: absolute;
+          top: 200%;
+          left: 0;
+          right: 0;
+          width: 4rem;
+          margin: auto;
+        }
+        .container_loader .loader--text:after {
+          content: "Loading";
+          font-weight: bold;
+          animation-name: loading-text;
+          animation-duration: 3s;
+          animation-iteration-count: infinite;
+        }
 
-@keyframes loader {
-  15% {
-    transform: translateX(0);
-  }
-  45% {
-    transform: translateX(230px);
-  }
-  65% {
-    transform: translateX(230px);
-  }
-  95% {
-    transform: translateX(0);
-  }
-}
-@keyframes loading-text {
-  0% {
-    content: "Loading";
-  }
-  25% {
-    content: "Loading.";
-  }
-  50% {
-    content: "Loading..";
-  }
-  75% {
-    content: "Loading...";
-  }
-}
+        @keyframes loader {
+          15% {
+            transform: translateX(0);
+          }
+          45% {
+            transform: translateX(230px);
+          }
+          65% {
+            transform: translateX(230px);
+          }
+          95% {
+            transform: translateX(0);
+          }
+        }
+        @keyframes loading-text {
+          0% {
+            content: "Loading";
+          }
+          25% {
+            content: "Loading.";
+          }
+          50% {
+            content: "Loading..";
+          }
+          75% {
+            content: "Loading...";
+          }
+        }
     </style>
     <script type="module" crossorigin src="/assets/index-sXvzpDPZ.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-B00bX41o.css">
@@ -127,5 +122,11 @@
       </div>
     </div>
     <div id="root"></div>
+    <script>
+      window.addEventListener("DOMContentLoaded",()=>{
+       document.getElementById("loading").style.display="none";
+ 
+      })
+     </script>
   </body>
 </html>
