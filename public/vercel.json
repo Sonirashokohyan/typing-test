@@ -4,7 +4,7 @@
         {
             "src":"/(.*)",
             "dest":"/index.html",
-            "continue":true
+            "status":200
            
         }
     ]
