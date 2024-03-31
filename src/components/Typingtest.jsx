@@ -9,6 +9,9 @@ const SpeedTypingGame = () => {
     "Stem is the posterior part that remains above the ground and grows negatively geotropic. Internodes and nodes are found on the stem. Branch, bud, leaf, petiole, flower, and inflorescence on a node are all those parts of the plant that remain above the ground  and undergo negative subsoil development. The trees have brown bark and the young and newly developed stems are green. The roots arise from the parts of plant and not from  the rhizomes roots.",
     "It is the blossom of a plant. A flower is the part of a plant that produces seeds, which eventually become other flowers. They are the reproductive system of a plant. Most flowers consist of 04 main parts that are sepals, petals, stamens, and carpels. The female portion of the flower is the carpels. The majority of flowers are hermaphrodites, meaning they have both male and female components. Others may consist of one of two parts and may be male or female.",
     "An aunt is a bassoon from the right perspective. As far as we can estimate, some posit the melic myanmar to be less than kutcha. One cannot separate foods from blowzy bows. The scampish closet reveals itself as a sclerous llama to those who look. A hip is the  skirt of a peak. Some hempy laundries are thought of simply as orchids. A gum is a  trumpet from the right perspective. A freebie flight is a wrench of the mind. Some  posit the croupy.",
+    "Jackdaws love my big sphinx of quartz. Waltz, nymph, for quick jigs vex Bud. Glib jocks quiz nymph to vex dwarf. The vixen jumped quickly on her foe barking with joy. How razorback-jumping frogs can level six piqued gymnasts! Sphinx of black quartz, judge my vow. The five boxing wizards jump quickly. Pack my box with five dozen liquor jugs. The quick brown fox jumps over the lazy dog. Quick wafting zephyrs vex bold Jim.",
+    "The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. The quick brown fox jumps over a lazy dog. Waltz, nymph, for quick jigs vex Bud. Sphinx of black quartz, judge my vow. Quick wafting zephyrs vex bold Jim. Glib jocks quiz nymph to vex dwarf. The vixen jumped quickly on her foe barking with joy. How razorback-jumping frogs can level six piqued gymnasts!",
+    "Pack my box with five dozen liquor jugs. The quick brown fox jumps over the lazy dog. Mr. Jock, TV quiz PhD, bags few lynx. The five boxing wizards jump quickly. How razorback-jumping frogs can level six piqued gymnasts! Sphinx of black quartz, judge my vow. Jackdaws love my big sphinx of quartz. Waltz, nymph, for quick jigs vex Bud. Glib jocks quiz nymph to vex dwarf. Quick wafting zephyrs vex bold Jim. The vixen jumped quickly on her foe barking with joy.",
   ];
 
   const [typingText, setTypingText] = useState("");
@@ -20,6 +23,8 @@ const SpeedTypingGame = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [WPM, setWPM] = useState(0);
   const [CPM, setCPM] = useState(0);
+
+  ////////////////////////////////////////////////////
 
   const loadParagraph = () => {
     const ranIndex = Math.floor(Math.random() * paragraphs.length);
@@ -42,6 +47,9 @@ const SpeedTypingGame = () => {
     setIsTyping(false);
   
   };
+
+  ////////////////////////////////////////////////////////////
+
   const handleKeyDown = (event) => {
     const characters = document.querySelectorAll(".char");
     if (
@@ -70,6 +78,8 @@ const SpeedTypingGame = () => {
       setWPM(wpm);
     }
   };
+
+  ///////////////////////////////////////////////////////
 
   const initTyping = (event) => {
     const characters = document.querySelectorAll(".char");
@@ -111,6 +121,8 @@ const SpeedTypingGame = () => {
     }
   };
 
+  /////////////////////////////////////////////////
+
   const resetGame = () => {
     setIsTyping(false);
     setTimeLeft(maxTime);
@@ -129,9 +141,13 @@ const SpeedTypingGame = () => {
     loadParagraph();
   };
 
+  /////////////////////////////////////////
+
   useEffect(() => {
     loadParagraph();
   }, []);
+
+  /////////////////////
 
   useEffect(() => {
     let interval;
@@ -155,6 +171,8 @@ const SpeedTypingGame = () => {
       clearInterval(interval);
     };
   }, [isTyping, timeLeft]);
+
+  ////////////////////////////////////
   return (
     <div className="container">
       <input

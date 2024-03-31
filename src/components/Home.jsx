@@ -3,6 +3,8 @@ import styles from "../css/startHome.module.css";
 import Typingtest from "./Typingtest";
 import { useNavigate } from "react-router-dom";
 import { Toaster,toast } from "sonner";
+
+
 function Home() {
  
   const [loading, setLoading] = useState(true);
