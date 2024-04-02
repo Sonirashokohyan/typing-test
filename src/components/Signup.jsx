@@ -11,6 +11,9 @@ function Signup() {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   }
+ 
+
+
 
   async function SendForm() {
     if (formValues) {
@@ -44,6 +47,7 @@ function Signup() {
             } catch (error) {
               product = false;
             }
+
             
             if (product) {
               navigate("/");
@@ -70,7 +74,7 @@ function Signup() {
         <section className={styles.container}>
           <div className={styles.login_container}>
             <Toaster richColors position="top-center" />
-            <div className={`${styles.circle} ${styles.circle_one}`}></div>
+      
             <div className={styles.form_container}>
               <h1 className={styles.opacity}>SIGN UP</h1>
 
@@ -127,9 +131,7 @@ function Signup() {
                 <Link to={"/"}> Already have an account</Link>
               </div>
             </div>
-            {/* <div className={`${styles.circle} ${styles.circle_two}`}></div> */}
           </div>
-          <div className={styles.theme_btn_container}></div>
         </section>
       </div>
     </div>

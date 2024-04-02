@@ -13,30 +13,28 @@ const TypingArea = ({
   handleKeyDown,
   resetGame,
 }) => {
+
+
 useEffect(()=>{
 
   if(timeLeft===0){
-   let sendData=async()=>{
-    let token=localStorage.getItem("token")
-    try{ let name=await fetch("https://sonira.pythonanywhere.com/api/records-save/",{
-  method:"POST",
-  headers:{"Content-Type":"application/json"},
-  body:JSON.stringify({token,WPM})
-})
-name=await name.json();
-if(name){
-toast.success("Data Saved Successfuly.")
-}}catch(error){
-  
-    toast.error("Data Saving failed.")
-  
-  
+    let sendData=async()=>{
+      let token=localStorage.getItem("token")
+      try{ let name=await fetch("https://sonira.pythonanywhere.com/api/records-save/",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({token,WPM})
+      })
+      name=await name.json();
+      if(name){
+      toast.success("Data Saved Successfuly.")
+      }}catch(error){
+        toast.error("Data Saving failed.")
+        }
     }
-   }
-   sendData()
-   
-   
-  }
+    sendData()
+    }
+
 },[timeLeft,WPM])
 
 

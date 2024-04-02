@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import videobg from "/bg.mp4"
 import videobgS from "/bg2.mp4"
 import { useEffect, useRef, useState } from "react";
+
+
 function Start() {
   const [muted,setMuted]=useState(false);
   const navigate = useNavigate();
-const videoref=useRef(null) 
+  const videoref=useRef(null) 
 
-const handlemuted =()=>{
-setMuted(!muted);
+  const handlemuted =()=>{
+  setMuted(!muted);
   if(videoref.current){
     videoref.current.muted=!videoref.current.muted
   }

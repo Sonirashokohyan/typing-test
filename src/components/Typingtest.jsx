@@ -79,6 +79,7 @@ const SpeedTypingGame = () => {
     }
   };
 
+
   ///////////////////////////////////////////////////////
 
   const initTyping = (event) => {

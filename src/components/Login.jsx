@@ -46,7 +46,6 @@ function Login() {
         <section className={styles.container}>
           <div className={styles.login_container}>
             <Toaster richColors position="top-center"></Toaster>
-            <div className={`${styles.circle} ${styles.circle_one}`}></div>
             <div className={styles.form_container}>
               <h1 className={styles.opacity}>LOGIN</h1>
               <form
@@ -83,9 +82,7 @@ function Login() {
                 <Link to={"/signup"}> Register</Link>
               </div>
             </div>
-            {/* <div className={`${styles.circle} ${styles.circle_two}`}></div> */}
           </div>
-          <div className={styles.theme_btn_container}></div>
         </section>
       </div>
     </div>

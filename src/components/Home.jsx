@@ -109,6 +109,7 @@ let recieveWPM=async()=>{
               </div>
             </div>
           )}
+
           {checkRecords && checkprofile && (
             <div
               className={styles.dropdown_records}
@@ -119,20 +120,20 @@ let recieveWPM=async()=>{
                 setCheckProfile(false);
               }}
             >
-              <div>
-                <h3>Recents</h3>
-                <i className="bx bx-chevron-right" style={{ color: "white" }}></i>
-              </div>
-              
-           {loading && <span className={styles.loader}></span>}
-              
-         {
-          recieveRecords && recieveRecords.map((item,index)=>{
-           return (<div key={index}><h3>
-             WPM : {item.wpm}
-            </h3></div>) 
-          })
-         }
+            <div>
+                  <h3>Recents</h3>
+                  <i className="bx bx-chevron-right" style={{ color: "white" }}></i>
+                </div>
+                
+            {loading && <span className={styles.loader}></span>}
+                
+              {
+                recieveRecords && recieveRecords.map((item,index)=>{
+                return (<div key={index}><h3>
+                  WPM : {item.wpm}
+                  </h3></div>) 
+                })
+              }
             </div>
           )}
         </div>
